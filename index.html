@@ -16,12 +16,18 @@
             <div id="app__title">
                 
                 <div id="controls"> 
-                    <div class="control__button" style="background-color: greenyellow;"></div> 
-                    <div class="control__button" style="background-color:gold"></div>
-                    <div class="control__button" style="background-color: rgb(255, 47, 92);"> </div>          
+                    <div id="green" class="control__button" style="background-color: greenyellow;"></div> 
+                    <div id="yellow" class="control__button" style="background-color:gold"></div>
+                    <div id="red" class="control__button" style="background-color: rgb(255, 47, 92);"> </div>          
                 </div>
                 
                 <h1>Todo App</h1>
+
+                <form id="inputs">
+                    <input type="text" id="taskName" placeholder="Task Name">
+                    <input type="text" id="taskDate" placeholder="Due Date" disabled>
+                    <input type="submit" value="Create">
+                </form>
             
             </div>
 
@@ -31,7 +37,9 @@
                     <h1>Tasks</h1>
                 </header>
                 
+                <!-- Entry point for creating items in DOM -->
                 <ul id="taskList">   
+                    <todo-item></todo-item>
                 </ul>
             </div>
         
