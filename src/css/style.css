@@ -82,7 +82,7 @@ div {
 ---------------------------*/
 
 .activeTask {
-    color: lightgreen;
+    color: rgb(75, 212, 212);
 }
 
 .completeTask {
