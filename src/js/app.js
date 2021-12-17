@@ -15,6 +15,10 @@ class TodoItem {
     getCompleted() {
         this._completed = !this._completed;
     }
+
+    static createElement = (item) => {
+        return `<li class="activeTask" > ${item._name}, ${item._date}, ${item._completed} </li>`;
+    }
 }
 
 /*---------------------------
@@ -25,53 +29,70 @@ class TodoItem {
 let y = new TodoItem("Make Coffee", "Tonight")
 
 //DataStore
-const dataStore = [];
+let dataStore = [];
 
 //Entry point to tasks
 const taskList = document.getElementById("taskList");
 
-const createElement = (item) => {
-    return `<li class="activeTask" > ${item._name} ${item._date} ${item._completed} </li>`;
-}
+//Submit
+const submit = document.getElementById("submit");
+
 
 /*----------------------------
     CRUD Functions:
 -----------------------------*/
 
+// Create
 const createItem = () => {
-    console.log("s")
 
-    const submit = document.getElementById("submit");
-    submit.onclick = (event) => {
-
-        event.preventDefault();
-        //Form
-        /*const inputForm = document.getElementById("inputForm");
-
-        inputForm.preventDefault();*/
-
-        //taskName taskDate
-        const inputName = document.getElementById("taskName");
-        const inputDate = document.getElementById("taskDate");
+        //getting input
+        let inputName = document.getElementById('taskName');
+        let inputDate = document.getElementById('taskDate');
         
-        let newTodoItem = new TodoItem(inputName, inputDate);
+        //making object
+        let newTodoItem = new TodoItem(inputName.value, inputDate.value);
+        
+        // output
+            // putting into array
+            dataStore.push(newTodoItem);
+            // putting into DOM
+            taskList.innerHTML += TodoItem.createElement(newTodoItem); 
 
         console.log(newTodoItem);
+}
+
+// Delete
+const deleteItem = (name) => {
 
 
+    dataStore.pop();
+    console.log(dataStore);
+}
+
+// Read
+const readItems = (name) => {
+
+    for (let index = 0; index < dataStore.length; index++) {
+
+        const item = dataStore[index];
+
+        if (item._name === name) {
+            console.log(item._name);
+        }
+        
     }
-
 }
 
-const deleteItem = () => {
-    console.log("s")
-}
+/* ----------------------------------
+    Todo App Functions
+----------------------------------- */
 
-const readItems = () => {
-    console.log("s")
-}
+submit.addEventListener('click', (event) => {
 
+    event.preventDefault();
 
+    createItem();
+});
 
 /*
 let cBtn = document.getElementsByClassName("control__button");
