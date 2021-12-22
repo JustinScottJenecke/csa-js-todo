@@ -71,7 +71,7 @@ div {
 /* Ul tag and all tasks inside */
 #taskList {
     border-radius: 7px;
-    padding: 0.5rem;
+    /*padding: 0.5rem;*/
 
     list-style: none;
     background-color: rgb(27, 27, 27);
@@ -80,6 +80,10 @@ div {
 /* -------------------------
     Operational Styling: 
 ---------------------------*/
+
+.task {
+    padding: 3vh 0 3vh 0;
+}
 
 .activeTask {
     color: rgb(75, 212, 212);
