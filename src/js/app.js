@@ -78,6 +78,7 @@ const createItem = () => {
 
         //console.log(newTodoItem);
         console.log(dataStore);
+
 }
 
 
@@ -91,8 +92,7 @@ const createItem = () => {
 
         if (item._name === name) {
             console.log(item._name);
-        }
-        
+        }   
     }
 }*/
 
@@ -122,36 +122,16 @@ taskList.addEventListener('click', (e) => {
         });
 
         console.log(dataStore);
+
+        /* ------ Local Storage integration ------ */
+
+        jsonTodoItems = JSON.stringify(dataStore);
+        localStorage.setItem("csa-todo-app",jsonTodoItems);
+
+        console.log(localStorage.getItem("csa-todo-app"));
+
     }
 })
-
-/*const deleteItem = () => {
-
-    let elementName = "";
-
-
-    /*const todoItems = Array.from(document.getElementsByClassName('task'));
-
-    console.log(todoItems);
-
-    todoItems.forEach( item => {
-        console.log(item);
-    });*/
-  
-    /* for (let i = 0; i < deleteBtns.length; i++) {
-
-        //console.log('must only print once');
-
-        // Remove DataStore Element
-        console.log(deleteBtns[i]);
-        elementName = deleteBtns[i].parentElement.firstElementChild.innerText;
-    
-        // Remove DOM Element;
-        console.log(deleteBtns[i].parentElement);
-        //deleteBtns[i].parentElement.remove();
-        
-    }*/
-//}
 
 /* ----------------------------------
     Todo App Functions
@@ -163,15 +143,30 @@ submit.addEventListener('click', (event) => {
     createItem();
 
 });
-/*
-deleteBtns.forEach(delBtn => {
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+
+    // getting reference to all input fields
+    let inputs = document.querySelectorAll(".input")
+
+    // Retrieve todo items from localstore
+    jsTodoItems = JSON.parse(localStorage.getItem("csa-todo-app"));
+
+    //set datastore == items from localstore
+    dataStore = jsTodoItems;
     
-    delBtn.addEventListener('click', () => {
+    // Sorting array elements
+    dataStore.sort((a, b) => (a._name > b._name) ? 1 : -1);
 
-        console.log(delBtn);
-        console.log(delBtn.parentElement);
-    })
+    // Create HTML li component for each object in array
+    dataStore.forEach( task => {
+        
+        taskList.innerHTML += TodoItem.createElement(task);
+    });
 
-});*/
-
-
+    // Clear input text on session reload
+    inputs.forEach(input => {
+        input.value = "";
+    });
+});
