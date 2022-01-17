@@ -40,7 +40,14 @@
                 </header>
                 
                 <!-- Entry point for creating items in DOM -->
-                <ul id="taskList">   
+                <ul id="taskList">  
+                    <li class="activeTask task"> 
+                        <span>${item._name}</span> - 
+                        <span>${item._date}</span> -
+                        <span>${item._completed}</span> -
+                        <button class="deleteBtn">Delete</button> |
+                        <button class="updateBtn">Update</button>
+                    </li> 
                 </ul>
             </div>
         

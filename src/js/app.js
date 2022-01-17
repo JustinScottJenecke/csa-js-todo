@@ -144,29 +144,35 @@ submit.addEventListener('click', (event) => {
 
 });
 
-
+// Refresh todo's after session ends
 window.addEventListener('DOMContentLoaded', (event) => {
-
-    // getting reference to all input fields
-    let inputs = document.querySelectorAll(".input")
 
     // Retrieve todo items from localstore
     jsTodoItems = JSON.parse(localStorage.getItem("csa-todo-app"));
 
-    //set datastore == items from localstore
-    dataStore = jsTodoItems;
-    
-    // Sorting array elements
-    dataStore.sort((a, b) => (a._name > b._name) ? 1 : -1);
+    if (jsTodoItems != null) {
 
-    // Create HTML li component for each object in array
-    dataStore.forEach( task => {
+        // getting reference to all input fields
+        let inputs = document.querySelectorAll(".input")
+
+        //set datastore == items from localstore
+        dataStore = jsTodoItems;
         
-        taskList.innerHTML += TodoItem.createElement(task);
-    });
+        // Sorting array elements
+        dataStore.sort((a, b) => (a._name > b._name) ? 1 : -1);   
+    
+        // Create HTML li component for each object in array
+        dataStore.forEach( task => {
+            
+            taskList.innerHTML += TodoItem.createElement(task);
+        });
 
-    // Clear input text on session reload
-    inputs.forEach(input => {
-        input.value = "";
-    });
+        // Clear input text on session reload
+        inputs.forEach(input => {
+            input.value = "";
+        });
+    
+    } else {
+        console.log("Local Storage is empty");
+    }
 });
