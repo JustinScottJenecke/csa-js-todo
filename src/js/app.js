@@ -60,10 +60,13 @@ const createItem = () => {
         //getting input
         let inputName = document.getElementById('taskName');
         
+        // Convert inputdate value to Date Object
         let inputDate = document.getElementById('taskDate');
+        inputDate = new Date(inputDate.value);
+        inputDate = inputDate.toUTCString()
 
         //making object
-        let newTodoItem = new TodoItem(inputName.value, inputDate.value);
+        let newTodoItem = new TodoItem(inputName.value, inputDate);
         
         // output
             // putting into array

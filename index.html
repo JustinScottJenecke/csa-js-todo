@@ -25,7 +25,7 @@
 
                 <form id="inputForm">
                     <input type="text" id="taskName" class="input" placeholder="Task Name">
-                    <input type="text" id="taskDate" class="input" placeholder="Due Date">
+                    <input type="datetime-local" id="taskDate" class="input" placeholder="Due Date">
                     <input type="submit" id="submit" value="Create">
                 </form>
 
@@ -41,13 +41,7 @@
                 
                 <!-- Entry point for creating items in DOM -->
                 <ul id="taskList">  
-                    <li class="activeTask task"> 
-                        <span>${item._name}</span> - 
-                        <span>${item._date}</span> -
-                        <span>${item._completed}</span> -
-                        <button class="deleteBtn">Delete</button> |
-                        <button class="updateBtn">Update</button>
-                    </li> 
+                    
                 </ul>
             </div>
         
