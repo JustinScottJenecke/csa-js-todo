@@ -22,10 +22,16 @@
     <div id="modal" class="modal">
         
             <form id="inputForm">
+
+                <div id="controls"> 
+                    <div id="red" onclick="deactivateModals()" class="control__button" style="background-color: rgb(255, 47, 92);"></div>          
+                </div>
+
                 <span id="modal-title"> <h2>Create Todo Item</h2> </span>
-                <input type="text" id="taskName" class="input" placeholder="Task Name" required>
-                <input type="datetime-local" id="taskDate" class="input" placeholder="Due Date" required> 
+                <input type="text" id="taskName" class="input" placeholder="Task Name" required >
+                <input type="datetime-local" id="taskDate" class="input" placeholder="Due Date" required > 
                 <input type="submit" id="submit" value="Create">
+
             </form>
 
         </div>
@@ -38,9 +44,9 @@
             <div id="app__title">
                 
                 <div id="controls"> 
-                    <div id="green" class="control__button" style="background-color: greenyellow;">+</div> 
+                    <div id="green" class="control__button" style="background-color: greenyellow;"></div> 
                     <div id="yellow" class="control__button" style="background-color:gold"></div>
-                    <div id="red" class="control__button" style="background-color: rgb(255, 47, 92);"> </div>          
+                    <div id="red" class="control__button" style="background-color: rgb(255, 47, 92);"></div>          
                 </div>
                 
                 <h1>Todo App</h1>
@@ -55,7 +61,7 @@
 
             <div id="app__main">
 
-                <!--<header>
+                <!-- <header> 
                     <h1>Tasks</h1>
                 </header>
 
@@ -64,7 +70,11 @@
                 <!-- Entry point for creating items in DOM -->
                 <ul id="taskList">  
                     
+                    
                 </ul>
+                <div style="text-align: center;">
+                    <button id="addModalBtn"> + </button>
+                </div>
             </div>
         
         </div>

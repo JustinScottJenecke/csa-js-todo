@@ -51,6 +51,7 @@ const submit = document.getElementById("submit");
 const modal = document.getElementById("modal");
 const bgShadow = document.getElementById("bg-shadow");
 
+const add = document.getElementById("addModalBtn");
 
 /*----------------------------
     CRUD Functions:
@@ -159,14 +160,24 @@ taskList.addEventListener('click', (e) => {
     Todo App Functions
 ----------------------------------- */
 
+// Add click functions
+
+add.addEventListener('click', () => {
+    activateModals();
+})
+
+
 submit.addEventListener('click', (event) => {
 
     event.preventDefault();
     createItem();
+    deactivateModals();
 
 });
 
-// Refresh todo's after session ends
+
+// --- Refresh todo's after session ends --//
+
 window.addEventListener('DOMContentLoaded', (event) => {
 
     // Retrieve todo items from localstore
