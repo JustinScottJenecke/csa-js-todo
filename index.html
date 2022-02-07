@@ -7,37 +7,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Todo App</title>
         <link rel="stylesheet" href="./src/css/style.css">
+        <link rel="stylesheet" href="./src/css/style2.css">
     </head>
 
     <body>
 
+<!-- Modal Component -->
+
+    <div id="bg-shadow" class="shadow">
+
+    </div>
+
+
+    <div id="modal" class="modal">
+        
+            <form id="inputForm">
+                <span id="modal-title"> <h2>Create Todo Item</h2> </span>
+                <input type="text" id="taskName" class="input" placeholder="Task Name" required>
+                <input type="datetime-local" id="taskDate" class="input" placeholder="Due Date" required> 
+                <input type="submit" id="submit" value="Create">
+            </form>
+
+        </div>
+<!-- Modal End -->
+
+
+<!-- Todo App Component -->
         <div id="app">
         
             <div id="app__title">
                 
                 <div id="controls"> 
-                    <div id="green" class="control__button" style="background-color: greenyellow;"></div> 
+                    <div id="green" class="control__button" style="background-color: greenyellow;">+</div> 
                     <div id="yellow" class="control__button" style="background-color:gold"></div>
                     <div id="red" class="control__button" style="background-color: rgb(255, 47, 92);"> </div>          
                 </div>
                 
                 <h1>Todo App</h1>
 
-                <form id="inputForm">
+                <!-- <form id="inputForm">
                     <input type="text" id="taskName" class="input" placeholder="Task Name">
                     <input type="datetime-local" id="taskDate" class="input" placeholder="Due Date">
                     <input type="submit" id="submit" value="Create">
-                </form>
-
-                <br>  
+                </form> --> 
 
             </div>
 
             <div id="app__main">
 
-                <header>
+                <!--<header>
                     <h1>Tasks</h1>
                 </header>
+
+                 <hr> -->
                 
                 <!-- Entry point for creating items in DOM -->
                 <ul id="taskList">  

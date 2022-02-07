@@ -18,10 +18,10 @@ class TodoItem {
 
     static createElement = (item) => {
         return `<li class="activeTask task"> 
-                    <span>${item._name}</span> - 
-                    <span>${item._date}</span> -
-                    <span>${item._completed}</span> -
-                    <button class="deleteBtn">Delete</button> |
+                    <span>${item._name}</span>
+                    <span>${item._date}</span>
+                    <span>${item._completed}</span>
+                    <button class="deleteBtn">Delete</button>
                     <button class="updateBtn">Update</button>
                 </li>`;
                 /* <button class="deleteBtn" onclick="deleteItem(event)">Delete</button> | */
@@ -46,6 +46,10 @@ const taskList = document.getElementById("taskList");
 
 //Submit
 const submit = document.getElementById("submit");
+
+// Modals for control panel
+const modal = document.getElementById("modal");
+const bgShadow = document.getElementById("bg-shadow");
 
 
 /*----------------------------
@@ -84,6 +88,21 @@ const createItem = () => {
 
 }
 
+// -------- Modal Visibility --------//
+
+function activateModals() {
+
+    modal.classList.add("visible");
+    bgShadow.classList.add("visible");
+    
+}
+
+function deactivateModals() {
+
+    modal.classList.remove("visible");
+    bgShadow.classList.remove("visible");
+    
+}
 
 // -------------- Read --------------//
 
@@ -99,8 +118,8 @@ const createItem = () => {
     }
 }*/
 
-// -------------- Delete --------------//
 
+// -------------- Delete --------------//
 
 taskList.addEventListener('click', (e) => {
     
